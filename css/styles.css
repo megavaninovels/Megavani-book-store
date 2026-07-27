@@ -10898,17 +10898,19 @@ section.py-5{
 
 @media (max-width:576px){
 
-    .container{
-        padding-left:12px;
-        padding-right:12px;
-    }
-
-    .card{
-        margin-bottom:20px;
-    }
-
     .book-cover{
-        height:250px;
+        height:180px;
     }
+
+    .card-body{
+        padding:12px;
+    }
+
+    .btn{
+        font-size:13px;
+        padding:8px;
+    }
+
+}
 
 }
