@@ -10850,95 +10850,172 @@ textarea.form-control-lg {
 
 /* ===== Megavani Custom Design ===== */
 
-html,body{
+/* ==========================
+   Megavani Book Store Theme
+========================== */
+
+html,
+body{
     overflow-x:hidden;
     background:#f8f4ea;
+    font-family:'Segoe UI',sans-serif;
 }
 
+/* Section */
+
 section.py-5{
-    padding-top:2rem !important;
-    padding-bottom:3rem !important;
+    padding:2rem 0 3rem !important;
 }
 
 .container.mt-5{
     margin-top:1rem !important;
 }
 
+/* Card */
+
 .card{
     border:none !important;
     border-radius:18px;
     overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
     transition:.3s;
-    width:100%;
+    background:#fff;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    transform:translateY(-6px);
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
 }
+
+/* Book Cover */
 
 .book-cover{
     width:100%;
-    height:320px;
+    height:330px;
     object-fit:contain;
     background:#fff;
-    padding:10px;
+    padding:0;
     display:block;
 }
 
-.card-footer{
-    background:#fff !important;
+/* Card Body */
+
+.card-body{
+    padding:14px 16px;
 }
 
-.btn-outline-dark,
-.btn-dark{
-    border-radius:10px;
+/* Book Title */
+
+.card-title{
+    font-size:1.45rem;
+    font-weight:700;
+    line-height:1.25;
+    margin-bottom:4px;
+    color:#222;
 }
+
+/* Author */
+
+.author{
+    font-size:.95rem;
+    color:#777;
+    margin-bottom:10px;
+}
+
+/* Price + Genre */
+
+.price-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:1.7rem;
+    font-weight:700;
+    color:#111;
+}
+
+.genre{
+    font-size:.9rem;
+    color:#666;
+}
+
+/* Read More */
+
+.read-more{
+    display:inline-block;
+    margin-top:2px;
+    font-size:.92rem;
+    text-decoration:none;
+    color:#7b3f00;
+    font-weight:600;
+}
+
+.read-more:hover{
+    text-decoration:underline;
+}
+
+/* Footer */
+
+.card-footer{
+    background:#fff !important;
+    padding:12px 16px 16px;
+    border:none !important;
+}
+
+/* Buttons */
+
+.btn{
+    border-radius:10px;
+    font-weight:600;
+    padding:10px;
+}
+
+.btn-outline-dark{
+    border:1px solid #222;
+}
+
+.btn-dark{
+    background:#212529;
+}
+
+/* Mobile */
 
 @media (max-width:576px){
 
+    section.py-5{
+        padding-top:1rem !important;
+    }
+
     .book-cover{
-        height:180px;
+        height:250px;
     }
 
     .card-body{
         padding:12px;
     }
 
+    .card-title{
+        font-size:1.15rem;
+    }
+
+    .author{
+        font-size:.85rem;
+    }
+
+    .price{
+        font-size:1.35rem;
+    }
+
+    .genre{
+        font-size:.8rem;
+    }
+
     .btn{
-        font-size:13px;
+        font-size:.9rem;
         padding:8px;
     }
 
-}
-
-}
-.card-body{
-    padding:16px;
-}
-
-.card-title{
-    font-size:1.3rem;
-    font-weight:700;
-    line-height:1.3;
-    margin-bottom:6px;
-}
-
-.author{
-    font-size:0.95rem;
-    color:#777;
-    margin-bottom:8px;
-}
-
-.price{
-    font-size:1.5rem;
-    font-weight:700;
-    margin-bottom:8px;
-}
-
-.genre{
-    font-size:0.9rem;
-    color:#555;
-    margin-bottom:12px;
 }
