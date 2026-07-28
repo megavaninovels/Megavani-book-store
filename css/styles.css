@@ -10929,13 +10929,13 @@ section.py-5{
 ============================= */
 
 .card-title{
-    font-family:'Tiro Tamil', serif;
-    font-size:2rem;
-    font-weight:700;
-    line-height:1.15;
-    color:#3d2314;
-    letter-spacing:.2px;
-    margin:0;
+    font-family:'Noto Serif Tamil', serif;
+    font-size:1.7rem;
+    font-weight:600;
+    line-height:1.2;
+    color:#4a2c1d;
+    margin:0 0 6px;
+    letter-spacing:0;
 }
 /* =============================
    Author
