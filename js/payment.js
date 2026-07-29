@@ -58,3 +58,42 @@ payButton.addEventListener("click", () => {
     openRazorpay();
 
 });
+function openRazorpay(){
+
+    var options = {
+
+        key: "rzp_live_Sc4uTAV0qWbqo1",
+
+        amount: total * 100,
+
+        currency: "INR",
+
+        name: "YAAN Publication",
+
+        description: "Book Purchase",
+
+        image: "assets/logo.png",
+
+        prefill: {
+
+            name: customer.name,
+
+            email: customer.email,
+
+            contact: customer.phone
+
+        },
+
+        theme:{
+
+            color:"#6b1d46"
+
+        }
+
+    };
+
+    var rzp = new Razorpay(options);
+
+    rzp.open();
+
+}
