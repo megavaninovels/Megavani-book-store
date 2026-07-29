@@ -11209,18 +11209,18 @@ section.py-5{
     position:absolute;
 
     top:0;
+
     left:0;
-    right:0;
 
-    z-index:1000;
+    width:100%;
 
-    background:rgba(25,18,20,.18);
+    z-index:999;
 
-    backdrop-filter:blur(18px);
+    background:rgba(40,20,25,.18) !important;
 
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    -webkit-backdrop-filter:blur(20px);
 
     box-shadow:none;
 
