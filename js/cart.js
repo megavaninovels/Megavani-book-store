@@ -93,43 +93,59 @@ function loadCartPage(){
 
         total+=book.price*book.quantity;
 
-        container.innerHTML+=`
+        container.innerHTML += `
 
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm border-0 rounded-4">
 
-<div class="row g-0">
+    <div class="row g-0 align-items-center">
 
-<div class="col-md-2">
+        <div class="col-md-2 col-4">
 
-<img src="${book.image}"
+            <img src="${book.image}" class="img-fluid rounded-start">
 
-class="img-fluid rounded-start">
+        </div>
 
-</div>
+        <div class="col-md-10 col-8">
 
-<div class="col-md-10">
+            <div class="card-body">
 
-<div class="card-body">
+                <h4>${book.title}</h4>
 
-<h5>${book.title}</h5>
+                <p class="text-muted">${book.author}</p>
 
-<p>${book.author}</p>
+                <h5 class="text-danger">₹${book.price}</h5>
 
-<h5>₹${book.price}</h5>
+                <div class="d-flex align-items-center gap-2 mt-3">
 
-<p>
+                    <button
+                        class="btn btn-outline-secondary btn-sm"
+                        onclick="decreaseQuantity('${book.id}')">
+                        −
+                    </button>
 
-Quantity :
+                    <span class="fw-bold">
+                        ${book.quantity}
+                    </span>
 
-${book.quantity}
+                    <button
+                        class="btn btn-outline-secondary btn-sm"
+                        onclick="increaseQuantity('${book.id}')">
+                        +
+                    </button>
 
-</p>
+                    <button
+                        class="btn btn-danger btn-sm ms-3"
+                        onclick="removeBook('${book.id}')">
+                        🗑 Remove
+                    </button>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
+
+    </div>
 
 </div>
 
@@ -142,3 +158,66 @@ ${book.quantity}
 }
 
 loadCartPage();
+// ==========================
+// Increase Quantity
+// ==========================
+
+function increaseQuantity(id){
+
+    let cart = getCart();
+
+    const item = cart.find(book => book.id == id);
+
+    if(item){
+        item.quantity++;
+    }
+
+    saveCart(cart);
+    updateCartBadge();
+    loadCartPage();
+
+}
+
+// ==========================
+// Decrease Quantity
+// ==========================
+
+function decreaseQuantity(id){
+
+    let cart = getCart();
+
+    const item = cart.find(book => book.id == id);
+
+    if(item){
+
+        item.quantity--;
+
+        if(item.quantity <= 0){
+
+            cart = cart.filter(book => book.id != id);
+
+        }
+
+    }
+
+    saveCart(cart);
+    updateCartBadge();
+    loadCartPage();
+
+}
+
+// ==========================
+// Remove Book
+// ==========================
+
+function removeBook(id){
+
+    let cart = getCart();
+
+    cart = cart.filter(book => book.id != id);
+
+    saveCart(cart);
+    updateCartBadge();
+    loadCartPage();
+
+}
