@@ -1,4 +1,3 @@
-
 import { auth } from "./firebase.js";
 
 import {
@@ -8,25 +7,36 @@ import {
 
 onAuthStateChanged(auth, (user) => {
 
-    const loginLink = document.getElementById("loginLink");
-    const registerLink = document.getElementById("registerLink");
+    const guestMenu = document.getElementById("guestMenu");
+    const userMenu = document.getElementById("userMenu");
+    const logoutBtn = document.getElementById("logoutBtn");
 
-    if (!loginLink || !registerLink) return;
+    if (!guestMenu || !userMenu) return;
 
     if (user) {
 
-        loginLink.style.display = "none";
-        registerLink.innerHTML = "Logout";
+        guestMenu.style.display = "none";
+        userMenu.style.display = "block";
 
-        registerLink.onclick = async function (e) {
+    } else {
+
+        guestMenu.style.display = "block";
+        userMenu.style.display = "none";
+
+    }
+
+    if (logoutBtn) {
+
+        logoutBtn.onclick = async function (e) {
 
             e.preventDefault();
 
             await signOut(auth);
 
-            alert("Logged Out");
+            localStorage.removeItem("customer");
+            localStorage.removeItem("cart");
 
-            window.location.reload();
+            window.location.href = "login.html";
 
         };
 
