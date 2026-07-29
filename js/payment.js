@@ -1,5 +1,5 @@
 // Customer
-
+import { auth, db } from "./firebase.js";
 const customer = JSON.parse(localStorage.getItem("customer"));
 
 document.getElementById("customer-name").innerText = customer.name;
