@@ -47,8 +47,12 @@ console.log("Type of Password:", typeof password);
             uid: user.uid,
             name: name,
             email: email,
-            phone: "",
-            address: "",
+           phone: "",
+addressLine: "",
+city: "",
+state: "",
+pincode: "",
+country: "India",
             role: "customer",
             createdAt: new Date()
 
