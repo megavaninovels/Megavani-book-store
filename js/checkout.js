@@ -13,3 +13,42 @@ cart.forEach(book => {
 
 document.getElementById("subtotal").innerText = "₹" + total;
 document.getElementById("checkout-total").innerText = "₹" + total;
+// ==========================
+// Proceed to Payment
+// ==========================
+
+document.getElementById("payment-btn").addEventListener("click", function () {
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const address = document.getElementById("address").value.trim();
+
+    if (name === "" || phone === "" || email === "" || address === "") {
+
+        alert("Please fill all required fields.");
+
+        return;
+
+    }
+
+    if (phone.length !== 10 || isNaN(phone)) {
+
+        alert("Please enter a valid 10-digit phone number.");
+
+        return;
+
+    }
+
+    const customer = {
+        name,
+        phone,
+        email,
+        address
+    };
+
+    localStorage.setItem("customer", JSON.stringify(customer));
+
+    window.location.href = "payment.html";
+
+});
