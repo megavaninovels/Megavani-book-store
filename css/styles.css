@@ -10903,9 +10903,11 @@ section.py-5{
 
 .book-cover{
     width:100%;
-    height:auto;
+    height:340px;
+    object-fit:contain;
     display:block;
     padding:0;
+    background:#fff;
 }
 .card:hover .book-cover{
 
@@ -11126,128 +11128,74 @@ section.py-5{
 }
 
 /* =============================
-   Mobile
+   Responsive
 ============================= */
 
-@media(max-width:992px){
+@media (max-width:992px){
 
     .book-cover{
-
         height:300px;
-
+        object-fit:contain;
     }
 
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
 
     .card-title{
-
-        font-size:1.3rem;
-
+        font-size:1.25rem;
     }
 
 }
 
-@media(max-width:576px){
-
-    section.py-5{
-
-        padding-top:1rem !important;
-
-    }
-
-    .book-cover{
-
-        height:240px;
-
-    }
-
-    .card-body{
-
-        padding:14px;
-
-    }
-
-    .card-title{
-
-        font-size:1.15rem;
-
-    }
-
-    .author{
-
-        font-size:.82rem;
-
-    }
-
-    .price{
-
-        font-size:1.35rem;
-
-    }
-
-    .genre{
-
-        font-size:.68rem;
-
-        padding:4px 9px;
-
-    }
-
-    .description-short,
-    .description-full{
-
-        font-size:.82rem;
-
-    }
-
-    .btn{
-
-        padding:9px;
-
-        font-size:.9rem;
-
-    }
-
-}
-.col{
-    display:flex;
-}
-
-.book-card{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-}
-
-.card-body{
-    flex:1;
-}
-
-.card-footer{
-    margin-top:auto;
-}
 @media (max-width:576px){
 
-    .card-title{
-        font-size:1.2rem;
+    section.py-5{
+        padding-top:1rem !important;
     }
 
-    .author{
-        font-size:.8rem;
-    }
-
-    .price{
-        font-size:1.6rem;
+    .book-card{
+        border-radius:16px;
     }
 
     .book-cover{
-        height:200px;
+        height:240px;
+        object-fit:contain;
     }
 
     .card-body{
         padding:10px;
+    }
+
+    .card-title{
+        font-size:1rem;
+        line-height:1.2;
+        margin-bottom:4px;
+    }
+
+    .author{
+        font-size:.8rem;
+        margin-bottom:8px;
+    }
+
+    .price{
+        font-size:1.2rem;
+    }
+
+    .genre{
+        font-size:.65rem;
+        padding:3px 7px;
+    }
+
+    .description-short,
+    .description-full{
+        font-size:.78rem;
+        line-height:1.4;
+    }
+
+    .btn{
+        padding:8px;
+        font-size:.82rem;
     }
 
 }
