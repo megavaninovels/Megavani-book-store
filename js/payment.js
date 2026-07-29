@@ -51,3 +51,10 @@ Qty : ${book.quantity}
 
 document.getElementById("subtotal").innerText = "₹" + total;
 document.getElementById("grand-total").innerText = "₹" + total;
+const payButton = document.getElementById("payNow");
+
+payButton.addEventListener("click", () => {
+
+    openRazorpay();
+
+});
