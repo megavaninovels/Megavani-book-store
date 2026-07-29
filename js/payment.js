@@ -109,9 +109,17 @@ function openRazorpay() {
 
        handler: async function (response) {
 
+    if (!currentUser) {
+
+        alert("Please login again.");
+        return;
+
+    }
+
+
     try {
 
-        await addDoc(collection(db, "orders"), {
+       const orderRef = await addDoc(collection(db, "orders"), {
 
             uid: currentUser.uid,
 
@@ -130,7 +138,7 @@ function openRazorpay() {
             createdAt: serverTimestamp()
 
         });
-
+localStorage.setItem("orderId", orderRef.id);
         localStorage.setItem(
             "paymentId",
             response.razorpay_payment_id
