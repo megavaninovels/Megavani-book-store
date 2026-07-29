@@ -11,4 +11,5 @@ cart.forEach(book => {
     total += book.price * book.quantity;
 });
 
+document.getElementById("subtotal").innerText = "₹" + total;
 document.getElementById("checkout-total").innerText = "₹" + total;
