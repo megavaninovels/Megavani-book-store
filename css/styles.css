@@ -11228,3 +11228,26 @@ section.py-5{
 .card-footer{
     margin-top:auto;
 }
+@media (max-width:576px){
+
+    .card-title{
+        font-size:1.2rem;
+    }
+
+    .author{
+        font-size:.8rem;
+    }
+
+    .price{
+        font-size:1.6rem;
+    }
+
+    .book-cover{
+        height:200px;
+    }
+
+    .card-body{
+        padding:10px;
+    }
+
+}
