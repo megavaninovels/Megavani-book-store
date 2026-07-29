@@ -11,6 +11,13 @@ import {
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 const customer = JSON.parse(localStorage.getItem("customer"));
+let currentUser = null;
+
+onAuthStateChanged(auth, (user) => {
+
+    currentUser = user;
+
+});
 
 document.getElementById("customer-name").innerText = customer.name;
 document.getElementById("customer-phone").innerText = customer.phone;
@@ -100,43 +107,47 @@ function openRazorpay() {
 
         },
 
-        handler: function (response) {
+       handler: async function (response) {
 
-            console.log("Payment Success");
+    try {
 
-            console.log(response);
+        await addDoc(collection(db, "orders"), {
 
-            // Payment ID save (temporary)
-            localStorage.setItem(
-                "paymentId",
-                response.razorpay_payment_id
-            );
+            uid: currentUser.uid,
 
-            // Cart clear
-            localStorage.removeItem("cart");
+            customer: customer,
 
-            // Success message
-            alert("Payment Successful!");
+            items: cart,
 
-            // Redirect
-            window.location.href = "success.html";
+            total: total,
 
-        },
+            paymentId: response.razorpay_payment_id,
 
-        modal: {
+            paymentStatus: "Paid",
 
-            ondismiss: function () {
+            orderStatus: "Placed",
 
-                alert("Payment cancelled.");
+            createdAt: serverTimestamp()
 
-            }
+        });
 
-        }
+        localStorage.setItem(
+            "paymentId",
+            response.razorpay_payment_id
+        );
 
-    };
+        localStorage.removeItem("cart");
 
-    var rzp = new Razorpay(options);
+        alert("Payment Successful!");
 
-    rzp.open();
+        window.location.href = "success.html";
 
-}
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Order save failed.");
+
+    }
+
+},
