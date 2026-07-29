@@ -221,3 +221,34 @@ function removeBook(id){
     loadCartPage();
 
 }
+// ==========================
+// Buy Now
+// ==========================
+
+document.querySelectorAll(".buy-now").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const book = {
+            id: this.dataset.id,
+            title: this.dataset.title,
+            author: this.dataset.author,
+            price: Number(this.dataset.price),
+            image: this.dataset.image,
+            quantity: 1
+        };
+
+        // Clear old cart
+        localStorage.removeItem("cart");
+
+        // Add only this book
+        saveCart([book]);
+
+        updateCartBadge();
+
+        // Go to cart page
+        window.location.href = "cart.html";
+
+    });
+
+});
