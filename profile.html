@@ -1,1 +1,80 @@
 
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-dark text-white">
+
+                    <h3 class="mb-0">My Profile</h3>
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Address Line</label>
+                        <textarea class="form-control" rows="3" id="addressLine"></textarea>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" id="city">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-control" id="state">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Pincode</label>
+                            <input type="text" class="form-control" id="pincode">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country">
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-primary w-100" id="saveProfile">
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="js/profile.js"></script>
