@@ -32,8 +32,3 @@ document.querySelectorAll(".read-more").forEach(button => {
     });
 
 });
-document.querySelectorAll(".add-to-cart").forEach(button => {
-    button.addEventListener("click", function () {
-        alert("Book added to cart!");
-    });
-});
