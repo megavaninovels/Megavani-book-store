@@ -64,3 +64,81 @@ document.querySelectorAll(".add-to-cart").forEach(button => {
 
 // Load badge when page opens
 updateCartBadge();
+
+// ==========================
+// Load Cart Page
+// ==========================
+
+function loadCartPage(){
+
+    const container = document.getElementById("cart-items");
+
+    if(!container) return;
+
+    const cart = getCart();
+
+    if(cart.length===0){
+
+        container.innerHTML="<h4>Your cart is empty.</h4>";
+
+        return;
+
+    }
+
+    let total=0;
+
+    container.innerHTML="";
+
+    cart.forEach(book=>{
+
+        total+=book.price*book.quantity;
+
+        container.innerHTML+=`
+
+<div class="card mb-3">
+
+<div class="row g-0">
+
+<div class="col-md-2">
+
+<img src="${book.image}"
+
+class="img-fluid rounded-start">
+
+</div>
+
+<div class="col-md-10">
+
+<div class="card-body">
+
+<h5>${book.title}</h5>
+
+<p>${book.author}</p>
+
+<h5>₹${book.price}</h5>
+
+<p>
+
+Quantity :
+
+${book.quantity}
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+    });
+
+    document.getElementById("cart-total").innerText=total;
+
+}
+
+loadCartPage();
