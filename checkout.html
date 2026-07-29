@@ -91,23 +91,30 @@
 
             <div class="card p-4 shadow-sm">
 
-                <h4>Order Summary</h4>
+               <h4>Order Summary</h4>
 
-                <hr>
+<hr>
 
-                <p>
-                    Total :
-                    <strong id="checkout-total">
-                        ₹0
-                    </strong>
-                </p>
+<div class="d-flex justify-content-between">
+    <span>Subtotal</span>
+    <strong id="subtotal">₹0</strong>
+</div>
 
-                <button
-                class="btn btn-dark w-100 mt-3">
+<div class="d-flex justify-content-between mt-2">
+    <span>Shipping</span>
+    <strong class="text-success">FREE</strong>
+</div>
 
-                    Proceed to Payment
+<hr>
 
-                </button>
+<div class="d-flex justify-content-between fs-5">
+    <strong>Grand Total</strong>
+    <strong id="checkout-total">₹0</strong>
+</div>
+
+<button class="btn btn-dark w-100 mt-4">
+    Proceed to Payment
+</button>
 
             </div>
 
