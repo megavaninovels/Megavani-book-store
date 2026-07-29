@@ -27,7 +27,11 @@ registerBtn.addEventListener("click", async () => {
         alert("Passwords do not match");
         return;
     }
-
+console.log("Name:", name);
+console.log("Email:", email);
+console.log("Password:", password);
+console.log("Type of Email:", typeof email);
+console.log("Type of Password:", typeof password);
     try {
 
         const userCredential = await createUserWithEmailAndPassword(
