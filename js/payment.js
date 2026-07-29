@@ -1,5 +1,11 @@
 // Customer
 import { auth, db } from "./firebase.js";
+
+import {
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 const customer = JSON.parse(localStorage.getItem("customer"));
 
 document.getElementById("customer-name").innerText = customer.name;
@@ -58,7 +64,7 @@ payButton.addEventListener("click", () => {
     openRazorpay();
 
 });
-function openRazorpay(){
+function openRazorpay() {
 
     var options = {
 
@@ -84,9 +90,42 @@ function openRazorpay(){
 
         },
 
-        theme:{
+        theme: {
 
-            color:"#6b1d46"
+            color: "#6b1d46"
+
+        },
+
+        handler: function (response) {
+
+            console.log("Payment Success");
+
+            console.log(response);
+
+            // Payment ID save (temporary)
+            localStorage.setItem(
+                "paymentId",
+                response.razorpay_payment_id
+            );
+
+            // Cart clear
+            localStorage.removeItem("cart");
+
+            // Success message
+            alert("Payment Successful!");
+
+            // Redirect
+            window.location.href = "success.html";
+
+        },
+
+        modal: {
+
+            ondismiss: function () {
+
+                alert("Payment cancelled.");
+
+            }
 
         }
 
