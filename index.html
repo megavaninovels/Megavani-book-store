@@ -88,21 +88,81 @@ class="btn position-relative">
 
                 </a>
 
-                <a href="login.html"
-   id="loginLink"
-   class="btn btn-outline-primary">
+               <div id="guestMenu">
 
-    Login
+    <a href="login.html"
+       id="loginLink"
+       class="btn btn-outline-primary">
 
-</a>
+        Login
 
-<a href="register.html"
-   id="registerLink"
-   class="btn btn-primary">
+    </a>
 
-    Register
+    <a href="register.html"
+       id="registerLink"
+       class="btn btn-primary">
 
-</a>
+        Register
+
+    </a>
+
+</div>
+
+<div id="userMenu" style="display:none;">
+
+    <div class="dropdown">
+
+        <button
+            class="btn btn-dark dropdown-toggle"
+            data-bs-toggle="dropdown">
+
+            👤 My Account
+
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+
+            <li>
+
+                <a class="dropdown-item"
+                   href="profile.html">
+
+                    My Profile
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a class="dropdown-item"
+                   href="my-orders.html">
+
+                    My Orders
+
+                </a>
+
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+
+                <a class="dropdown-item text-danger"
+                   href="#"
+                   id="logoutBtn">
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
 
             </div>
 
