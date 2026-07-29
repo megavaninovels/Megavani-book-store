@@ -3,7 +3,8 @@ import { auth, db } from "./firebase.js";
 
 import {
     doc,
-    getDoc
+    getDoc,
+    updateDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 import {
@@ -19,7 +20,6 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     const docRef = doc(db, "users", user.uid);
-
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -34,6 +34,36 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById("state").value = data.state || "";
         document.getElementById("pincode").value = data.pincode || "";
         document.getElementById("country").value = data.country || "India";
+
+    }
+
+});
+
+document.getElementById("saveProfile").addEventListener("click", async () => {
+
+    const user = auth.currentUser;
+
+    if (!user) return;
+
+    try {
+
+        await updateDoc(doc(db, "users", user.uid), {
+
+            name: document.getElementById("name").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            addressLine: document.getElementById("addressLine").value.trim(),
+            city: document.getElementById("city").value.trim(),
+            state: document.getElementById("state").value.trim(),
+            pincode: document.getElementById("pincode").value.trim(),
+            country: document.getElementById("country").value.trim()
+
+        });
+
+        alert("Profile updated successfully!");
+
+    } catch (error) {
+
+        alert(error.message);
 
     }
 
