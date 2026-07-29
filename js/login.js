@@ -48,8 +48,7 @@ googleBtn.addEventListener("click", async () => {
 
         alert("Google Login Successful");
 
-        window.location.href = "index.html";
-
+       window.location.replace("index.html");
     } catch (error) {
 
         alert(error.message);
