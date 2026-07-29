@@ -6,6 +6,10 @@ import {
   addDoc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 const customer = JSON.parse(localStorage.getItem("customer"));
 
 document.getElementById("customer-name").innerText = customer.name;
